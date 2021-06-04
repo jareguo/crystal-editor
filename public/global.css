@@ -16,7 +16,7 @@
 	--ce-color-fg: #000;
 	--ce-good: rgb(72, 240, 114);
 	--ce-warn: rgb(240, 201, 72);
-	--ce-error: rgb(240, 97, 72);
+	--ce-error: rgb(240, 83, 72);
 	--ce-blue: rgb(72, 173, 240);
 }
 
@@ -53,6 +53,18 @@ p, h1, h2, h3, h4, h5, h6{
 .v-center{
 	margin: auto 0;
 }
+
+button{
+	border: none;
+	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0);
+	transition: 0.1s ease;
+	cursor: pointer;
+	margin: 0px;
+}
+button:hover{
+	background-color: rgba(202, 202, 202, 0.219);
+}
 /* 	--------------------------------------------------------------------------
 	Editor Components
 */
@@ -66,6 +78,7 @@ p, h1, h2, h3, h4, h5, h6{
 	-webkit-app-region: drag;
 	height: 32px;
 	font-size: 14px;
+	border: 5px var(--ce-bg1); /* IMPORTANT! This bypasses the drag region so window resizing corners is not disrupted */
 }
 
 .flex{
