@@ -31,6 +31,7 @@ checksum = "28b2cd92db5cbd74e8e5028f7e27dd7aa3090e89e4f2a197cc7c8dfb69c7063b"
 name = "app"
 version = "0.1.0"
 dependencies = [
+ "crystal-hook",
  "serde",
  "serde_json",
  "tauri",
@@ -533,6 +534,11 @@ dependencies = [
  "generic-array",
  "subtle",
 ]
+
+[[package]]
+name = "crystal-hook"
+version = "0.1.0"
+source = "git+https://github.com/AlveLarsson/crystal-hook#e616980620bb922df72c05c60d6acd4bcb9339e3"
 
 [[package]]
 name = "cssparser"

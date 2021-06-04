@@ -1,63 +1,77 @@
-html, body {
-	position: relative;
-	width: 100%;
-	height: 100%;
+/*	--------------------------------------------------------------------------
+	Editor Styling
+*/
+
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/IBMPlexMono.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/IBMPlexSansRegular.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root{
+	/* Backgrounds */
+	--ce-bg: #232323;
+	--ce-fg: rgb(223, 223, 223);
+
+	--ce-bg1: #323232;
+
+	/* Colors */
+	--ce-good: rgb(72, 240, 114);
+	--ce-warn: rgb(240, 201, 72);
+	--ce-error: rgb(240, 97, 72);
+
 }
 
-body {
-	color: #333;
-	margin: 0;
-	padding: 8px;
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+::-moz-selection { background: yellow; color: #000; }
+::selection { background: yellow; color: #000; }
+
+/*	--------------------------------------------------------------------------
+	App structure
+*/
+
+html{
+	font-family: 'IBM Plex Sans', sans-serif;
+	background-color: var(--ce-bg);
+	color: var(--ce-fg);
+	margin: 0px;
+	padding: 0px;
 }
 
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+body{
+	background-color: none;
+	margin: 0px;
+	padding: 0px;
 }
 
-a:hover {
-	text-decoration: underline;
+
+p, h1, h2, h3, h4, h5, h6{
+	margin: 0px;
+	padding: 0px;
+	cursor:default;
 }
 
-a:visited {
-	color: rgb(0,80,160);
+.noselect { cursor:default; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+/* 	--------------------------------------------------------------------------
+	Editor Components
+*/
+
+.code{
+	font-family: 'IBM Plex Mono', monospace;
 }
 
-label {
-	display: block;
+.titlebar{
+	background-color: var(--ce-bg1);
+	-webkit-app-region: drag;
+	height: 32px;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
 
-input:disabled {
-	color: #ccc;
+/*	--------------------------------------------------------------------------
+	Animations
+*/
+@keyframes colorChange {
+	0%{fill:#ffffff}
+	50%{fill:rgb(255, 150, 150)}
+	100%{fill: #ffffff}
 }
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
+.box {
+	animation: colorChange 3s infinite;
 }
