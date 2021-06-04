@@ -13,10 +13,11 @@
 	--ce-bg1: #323232;
 
 	/* Colors */
+	--ce-color-fg: #000;
 	--ce-good: rgb(72, 240, 114);
 	--ce-warn: rgb(240, 201, 72);
 	--ce-error: rgb(240, 97, 72);
-
+	--ce-blue: rgb(72, 173, 240);
 }
 
 ::-moz-selection { background: yellow; color: #000; }
@@ -49,6 +50,9 @@ p, h1, h2, h3, h4, h5, h6{
 
 .noselect { cursor:default; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
+.v-center{
+	margin: auto 0;
+}
 /* 	--------------------------------------------------------------------------
 	Editor Components
 */
@@ -61,8 +65,21 @@ p, h1, h2, h3, h4, h5, h6{
 	background-color: var(--ce-bg1);
 	-webkit-app-region: drag;
 	height: 32px;
+	font-size: 14px;
 }
 
+.flex{
+	display: flex;
+}
+.f-row{
+	flex-direction: row;
+}
+.f-col{
+	flex-direction: column;
+}
+.f-space{
+	justify-content: space-between;
+}
 
 /*	--------------------------------------------------------------------------
 	Animations
