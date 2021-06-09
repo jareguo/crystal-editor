@@ -9,6 +9,7 @@
 	/* Backgrounds */
 	--ce-bg: #232323;
 	--ce-fg: rgb(223, 223, 223);
+	--ce-fg1:rgba(223, 223, 223, 0.418);
 
 	--ce-bg1: #323232;
 
@@ -48,6 +49,10 @@ p, h1, h2, h3, h4, h5, h6{
 	cursor:default;
 }
 
+.no-clicks {
+	pointer-events: none;
+}
+
 .noselect { cursor:default; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
 .v-center{
@@ -58,9 +63,11 @@ button{
 	border: none;
 	border-radius: 0px;
 	background-color: rgba(0, 0, 0, 0);
+	color: var(--ce-fg);
 	transition: 0.1s ease;
 	cursor: pointer;
 	margin: 0px;
+	min-height: 32px;
 }
 button:hover{
 	background-color: rgba(202, 202, 202, 0.219);
@@ -84,14 +91,17 @@ button:hover{
 .flex{
 	display: flex;
 }
-.f-row{
+.row{
 	flex-direction: row;
 }
-.f-col{
+.col{
 	flex-direction: column;
 }
-.f-space{
+.space{
 	justify-content: space-between;
+}
+.space-right{
+	justify-content: right;
 }
 
 /*	--------------------------------------------------------------------------
