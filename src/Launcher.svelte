@@ -2,7 +2,8 @@
     import TitleBar from './components/Titlebar.svelte'
     import DropDown from './ui/dropdown.svelte'
     
-    let items = [{name: "Game Project Name", engine: "Amethyst 0.16"}, {name: "Lorem Ipsum", engine: "Minigene 0.2"}]
+    let items = [{name: "Editor Settings", calling: () => { alert("Test") }}]
+    let projects = [{name: "Game Project Name", engine: "Amethyst 0.16"}, {name: "Lorem Ipsum", engine: "Minigene 0.2"}]
 </script>
 
 <TitleBar window_name="Project Launcher">
@@ -12,7 +13,7 @@
 <div class="frame flex col">
 <h1>Projects</h1>
     <div class="projects row">
-        {#each items as item}
+        {#each projects as item}
         <button class="project">
             <img
             class="icon"

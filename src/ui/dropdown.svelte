@@ -1,12 +1,10 @@
 <script>
-    let items = [
-		{ text: `Editor Settings`, calling: () => not_imprlemented() },
-        { text: `Plugins` },
-		{ text: `Check Update` }
-	];
 
-    function not_imprlemented() {
-        alert("Not implemented");
+    // Example of per item, { name: `My example item`, calling: () => example_function() }
+    export let items = [];
+
+    function example_function(){
+        alert("example function");
     }
 </script>
 
@@ -14,7 +12,7 @@
     <button class="dropbtn"><slot /></button>
     <div class="flex col dropdown-content">
         {#each items as item}
-            <button class="index">{item.text}</button>
+            <button on:click={() => item.calling()} class="index">{item.name}</button>
         {/each}
     </div>
 </div>
