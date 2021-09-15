@@ -1,9 +1,9 @@
 <img src="repo/splash.jpg" alt="Crystal Editor" />
 
-Game Engine agnostic editor for Rust ECS.
+Game Engine agnostic editor for Rust, Tauri + Svelte in the frontend, and Rust for the backend.
 
-# Crystal Hook
-info todo
+# Epitech Montpellier Students collaboration
+this repo is a collaboration between the Amethyst Org and a group of students from Epitech
 
 # Run
 First time setup.
