@@ -10,6 +10,9 @@
     let maximized = true;
     export let window_name = "Crystal Editor";
 
+    // Allow to disable the maximize button
+    export let can_maximize = true;
+
     function request_minimize(){
         minimize();
     }
@@ -30,18 +33,20 @@
         <img style="margin: auto 5px;" src="icons/editor.svg" height="23" alt="">
         <slot></slot>
     </div>
-    <p class="v-center tb_title">{window_name}</p>
+    <p class="v-center tb_title no-clicks">{window_name}</p>
     <div class="flex row">
         <button on:click={() => request_minimize()}>
             <img class="v-center" src="icons/tb_min.svg" height="11" width="11" alt="">
         </button>
-        <button on:click={() => request_maximize()}>
-            {#if maximized}
-                <img class="v-center" src="icons/tb_max.svg" height="11" width="11" alt="">
-            {:else}
-                <img class="v-center" src="icons/tb_max_min.svg" height="11" width="11" alt="">
-            {/if}
-        </button>
+        {#if can_maximize}
+            <button on:click={() => request_maximize()}>
+                {#if maximized}
+                    <img class="v-center" src="icons/tb_max.svg" height="11" width="11" alt="">
+                {:else}
+                    <img class="v-center" src="icons/tb_max_min.svg" height="11" width="11" alt="">
+                {/if}
+            </button>
+        {/if}
         <button on:click={() => request_exit()} class="exit">
             <img class="v-center" src="icons/tb_exit.svg" height="11" width="11" alt="">
         </button>

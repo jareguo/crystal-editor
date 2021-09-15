@@ -1,12 +1,29 @@
 <script>
     import TitleBar from './components/Titlebar.svelte'
     import DropDown from './ui/dropdown.svelte'
+    import Settings from './Settings.svelte'
+
+    import { WebviewWindow } from "@tauri-apps/api/window";
+
+    function createWindow(window_title, svelte_component) {
+        const label = Math.random().toString();
+        const webview = new WebviewWindow(label);
+        windowMap[label] = webview;
+        webview.once('tauri://error', function () {
+            alert('Error loading page');
+        })
+    }
+
+    // Trigger opening project
+    function openProject(project) {
+        console.log('Opening project', project);
+    }
     
-    let items = [{name: "Editor Settings", calling: () => { alert("Test") }}]
+    let items = [{name: "Editor Settings", calling: () => { createWindow("Editor Settings", Settings) }}]
     let projects = [{name: "Game Project Name", engine: "Amethyst 0.16"}, {name: "Lorem Ipsum", engine: "Minigene 0.2"}]
 </script>
 
-<TitleBar window_name="Project Launcher">
+<TitleBar window_name="Project Launcher" can_maximize="false">
     <DropDown items={items}>Settings</DropDown>
 </TitleBar>
 
@@ -14,7 +31,7 @@
 <h1>Projects</h1>
     <div class="projects row">
         {#each projects as item}
-        <button class="project">
+        <button class="project" on:click="{() => openProject(item)}">
             <img
             class="icon"
             style="padding:10px 50px"

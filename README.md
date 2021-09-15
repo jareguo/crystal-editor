@@ -12,5 +12,5 @@ First time setup.
 Run hot-reloading development build
 > npm run tauri dev
 
-If you run into any problems, enshure you have carefully followed the install instructions for your OS on: 
+If you run into any problems, ensure you have carefully followed the install instructions for your OS on: 
 https://tauri.studio/en/docs/getting-started/intro
