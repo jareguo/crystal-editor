@@ -5,10 +5,9 @@
 
     import { WebviewWindow } from "@tauri-apps/api/window";
 
-    function createWindow(window_title, svelte_component) {
-        const label = Math.random().toString();
-        const webview = new WebviewWindow(label);
-        windowMap[label] = webview;
+    function createWindow(window_title, page_name) {
+        const webview = new WebviewWindow(window_title, {url: page_name, "decorations": false});
+        //windowMap[window_title] = webview;
         webview.once('tauri://error', function () {
             alert('Error loading page');
         })
@@ -19,11 +18,11 @@
         console.log('Opening project', project);
     }
     
-    let items = [{name: "Editor Settings", calling: () => { createWindow("Editor Settings", Settings) }}]
+    let items = [{name: "Editor Settings", calling: () => { createWindow("Settings", "settings") }}]
     let projects = [{name: "Game Project Name", engine: "Amethyst 0.16"}, {name: "Lorem Ipsum", engine: "Minigene 0.2"}]
 </script>
 
-<TitleBar window_name="Project Launcher" can_maximize="false">
+<TitleBar window_name="Project Launcher" can_maximize="{false}">
     <DropDown items={items}>Settings</DropDown>
 </TitleBar>
 

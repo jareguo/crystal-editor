@@ -1,11 +1,16 @@
 <script>
     import { exit } from "@tauri-apps/api/process";
-    import { appWindow } from "@tauri-apps/api/window";
+    import { appWindow, getCurrent } from "@tauri-apps/api/window";
     const {
         maximize,
         unmaximize,
         minimize,
     } = appWindow;
+
+    let selectedWindow = getCurrent().label;
+    const windowMap = {
+        [selectedWindow]: appWindow
+    }
 
     let maximized = true;
     export let window_name = "Crystal Editor";
@@ -13,17 +18,15 @@
     // Allow to disable the maximize button
     export let can_maximize = true;
 
-    function request_minimize(){
-        minimize();
-    }
     function request_maximize(){
-        maximized ? maximize() : unmaximize();
+        maximized ? windowMap[selectedWindow].maximize() : windowMap[selectedWindow].unmaximize();
         maximized = !maximized;
     }
+
+    // TODO: Change so it dosent close the entire instance, but only the current window.
     function request_exit(){
-        // We are going to call rust and tell the Crystal-Hook we are exiting.
-        
-        exit(0);
+        // TODO: We are going to call rust and tell the Crystal-Hook we are exiting.
+        windowMap[selectedWindow].close();
     }
 
 </script>
@@ -35,7 +38,7 @@
     </div>
     <p class="v-center tb_title no-clicks">{window_name}</p>
     <div class="flex row">
-        <button on:click={() => request_minimize()}>
+        <button on:click={() => windowMap[selectedWindow].minimize()}>
             <img class="v-center" src="icons/tb_min.svg" height="11" width="11" alt="">
         </button>
         {#if can_maximize}

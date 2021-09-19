@@ -14,3 +14,8 @@ Run hot-reloading development build
 
 If you run into any problems, ensure you have carefully followed the install instructions for your OS on: 
 https://tauri.studio/en/docs/getting-started/intro
+
+# Misc
+When working with the project a todo highlighter is recommended,
+for VSCode:
+https://github.com/wayou/vscode-todo-highlight

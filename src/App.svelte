@@ -3,8 +3,14 @@
 
 	import Editor from './Editor.svelte'
 	import Launcher from './Launcher.svelte'
+	import { onMount } from "svelte"
+
+	onMount(() => {
+		path = window.location.href;
+	});
 
 	let is_Launcher = true;
+	let path = "";
 
 	function create_window(){
 		const webview = new WebviewWindow('theUniqueLabel', {
@@ -15,6 +21,7 @@
 </script>
 
 <main>
+	<h1>{path}</h1>
 	{#if is_Launcher}
 		<Launcher />
 	{:else}
