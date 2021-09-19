@@ -11,11 +11,13 @@
 
 	let route;
 	onMount(() => {
+		// TODO: Track what routes / windows are open and focus if duplicate.
+
 		// Get name of route from hash
 		route = window.location.hash.substr(1)
 		if (route == "") route = "launcher"
 	});
-	
+
 </script>
 
 <main>
