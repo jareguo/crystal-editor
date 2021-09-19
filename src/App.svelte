@@ -1,30 +1,23 @@
 <script>
-	import { WebviewWindow } from "@tauri-apps/api/window";
-
-	import Editor from './Editor.svelte'
-	import Launcher from './Launcher.svelte'
 	import { onMount } from "svelte"
 
+	// Route imports
+	import Editor from './Editor.svelte'
+	import Launcher from './Launcher.svelte'
+	import Settings from './Settings.svelte'
+
+	// Hash routes
+	let routes = { "settings" : Settings, "editor" : Editor, "launcher" : Launcher }
+
+	let route;
 	onMount(() => {
-		path = window.location.href;
+		// Get name of route from hash
+		route = window.location.hash.substr(1)
+		if (route == "") route = "launcher"
 	});
-
-	let is_Launcher = true;
-	let path = "";
-
-	function create_window(){
-		const webview = new WebviewWindow('theUniqueLabel', {
-			url: 'path/to/page.html'
-		})
-	}
-
+	
 </script>
 
 <main>
-	<h1>{path}</h1>
-	{#if is_Launcher}
-		<Launcher />
-	{:else}
-		<Editor />
-	{/if}
+	<svelte:component this={routes[route]} />
 </main>

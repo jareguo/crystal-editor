@@ -19,3 +19,6 @@ https://tauri.studio/en/docs/getting-started/intro
 When working with the project a todo highlighter is recommended,
 for VSCode:
 https://github.com/wayou/vscode-todo-highlight
+
+# Notes
+- (Hash based routing) We are using Hash based routing to figure out what component we want to render per window from app.svelte

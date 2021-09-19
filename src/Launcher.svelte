@@ -6,7 +6,7 @@
     import { WebviewWindow } from "@tauri-apps/api/window";
 
     function createWindow(window_title, page_name) {
-        const webview = new WebviewWindow(window_title, {url: page_name, "decorations": false});
+        const webview = new WebviewWindow(window_title, {url: "#" + page_name, "decorations": false});
         //windowMap[window_title] = webview;
         webview.once('tauri://error', function () {
             alert('Error loading page');
@@ -16,6 +16,7 @@
     // Trigger opening project
     function openProject(project) {
         console.log('Opening project', project);
+        createWindow(project.name, 'editor');
     }
     
     let items = [{name: "Editor Settings", calling: () => { createWindow("Settings", "settings") }}]
