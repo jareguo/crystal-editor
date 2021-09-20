@@ -37,6 +37,7 @@ html{
 }
 
 body{
+	border: 1px solid var(--ce-bg);
 	background-color: none;
 	margin: 0px;
 	padding: 0px;
@@ -55,10 +56,6 @@ p, h1, h2, h3, h4, h5, h6{
 
 .noselect { cursor:default; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
-.v-center{
-	margin: auto 0;
-}
-
 button{
 	border: none;
 	border-radius: 0px;
@@ -68,10 +65,19 @@ button{
 	cursor: pointer;
 	margin: 0px;
 	min-height: 32px;
+	padding: 10px;
 }
 button:hover{
 	background-color: rgba(202, 202, 202, 0.219);
+	padding: 10px;
 }
+button:active, button:focus{
+	padding: 10px;
+}
+.btn_dark{
+	
+}
+
 /* 	--------------------------------------------------------------------------
 	Editor Components
 */
@@ -102,6 +108,17 @@ button:hover{
 }
 .space-right{
 	justify-content: right;
+}
+.m-center {
+    margin: auto 0;
+}
+
+.i-center {
+    align-items: center;
+}
+
+.j-center {
+    justify-content: center;
 }
 
 /*	--------------------------------------------------------------------------

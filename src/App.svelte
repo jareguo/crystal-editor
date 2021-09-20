@@ -5,9 +5,10 @@
 	import Editor from './Editor.svelte'
 	import Launcher from './Launcher.svelte'
 	import Settings from './Settings.svelte'
+	import Debug from './Debug.svelte';
 
 	// Hash routes
-	let routes = { "settings" : Settings, "editor" : Editor, "launcher" : Launcher }
+	let routes = { "settings" : Settings, "editor" : Editor, "launcher" : Launcher, "debug" : Debug }
 
 	let route;
 	onMount(() => {

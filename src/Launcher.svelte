@@ -1,6 +1,6 @@
 <script>
     import TitleBar from './components/Titlebar.svelte'
-    import DropDown from './ui/dropdown.svelte'
+    import DropDown from './ui/Dropdown.svelte'
     import Settings from './Settings.svelte'
 
     import { WebviewWindow } from "@tauri-apps/api/window";
@@ -19,29 +19,30 @@
         createWindow(project.name, 'editor');
     }
     
-    let items = [{name: "Editor Settings", calling: () => { createWindow("Settings", "settings") }}]
-    let projects = [{name: "Game Project Name", engine: "Amethyst 0.16"}, {name: "Lorem Ipsum", engine: "Minigene 0.2"}]
+    let settings_dropdown = [{name: "Editor Settings", calling: () => { createWindow("Settings", "settings") }}]
+    let debug_dropdown = [{name: "UI Debug", calling: () => { createWindow("Debug", "debug") }}]
+
+    let projects = [{name: "Debug Inteface Dev", engine: "Engine Name"}]
 </script>
 
 <TitleBar window_name="Project Launcher" can_maximize="{false}">
-    <DropDown items={items}>Settings</DropDown>
+    <DropDown use_icon={false} options={settings_dropdown}>Settings</DropDown>
+    <DropDown use_icon={false} options={debug_dropdown}>Debug</DropDown>
 </TitleBar>
 
 <div class="frame flex col">
 <h1>Projects</h1>
     <div class="projects row">
         {#each projects as item}
-        <button class="project" on:click="{() => openProject(item)}">
+        <button class="project flex col j-center i-center" on:click="{() => openProject(item)}">
             <img
-            class="icon"
-            style="padding:10px 50px"
             src="/icons/editor.svg"
             height="80"
             alt="engine"
             />
-            <div class="no-clicks" style="padding:10px">
-                <hr />
+            <div class="no-clicks" style="padding-top:30px">
                 <h3><strong>{item.name}</strong></h3>
+                <div style="margin:0.4em"></div>
                 <p class="small">{item.engine}</p>
             </div>
         </button>
@@ -49,7 +50,7 @@
     </div>
 </div>
 
-<div class="bar flex row space">
+<div class="bar flex row space i-center">
     <p class="v-center small">V. 0.10</p>
     <div>
         <button>Open External</button>
@@ -58,9 +59,6 @@
 </div>
 
 <style>
-    .v-center{
-        margin: auto 0 !important;
-    }
     .small{
         color: var(--ce-fg1);
     }

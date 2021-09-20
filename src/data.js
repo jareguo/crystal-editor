@@ -10,3 +10,10 @@ export const projects = writable([]);
 // Project Info (When a project is loaded)
 export const project_name = writable();
 export const project_path = writable();
+
+// Local Editor settings per user, this info won't be exposed to crystal.toml
+// TODO: Export, Import?
+// value: "", means the value is not set, and will then use the default value
+var user_settings = [
+    {lable: "Darkmode", default: true, value: ""},
+];
