@@ -20,5 +20,8 @@ When working with the project a todo highlighter is recommended,
 for VSCode:
 https://github.com/wayou/vscode-todo-highlight
 
+# Update icon
+> npm run tauri icon -t public/alpha_icon.png
+
 # Notes
 - (Hash based routing) We are using Hash based routing to figure out what component we want to render per window from app.svelte
