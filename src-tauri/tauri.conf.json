@@ -10,6 +10,9 @@
     "beforeBuildCommand": "npm run build"
   },
   "tauri": {
+    "systemTray": {
+      "iconPath": "icons/tray.png"
+    },
     "bundle": {
       "active": true,
       "targets": "all",
