@@ -5,6 +5,12 @@
 
 use tauri::{CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
 
+#[tauri::command]
+fn editor_instance_init() {
+  // <editor> svelte component/window has just been created.
+  println!("Editor new instance triggerd");
+}
+
 fn main() {
 
   // Desktop tray
@@ -14,7 +20,7 @@ fn main() {
   let tray = SystemTray::new().with_menu(tray_menu);
 
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![])
+    .invoke_handler(tauri::generate_handler![editor_instance_init])
     .system_tray(tray)
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
