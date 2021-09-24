@@ -1,9 +1,9 @@
 <script>
-    import TitleBar from "./components/Titlebar.svelte";
+    import TitleBar from "../components/Titlebar.svelte";
 
     // UI kit debugging
-    import DropDown from "./ui/Dropdown.svelte";
-    import Drawer from "./ui/Drawer.svelte";
+    import DropDown from "../ui/Dropdown.svelte";
+    import Drawer from "../ui/Drawer.svelte";
 
     let intefrace_options = [
         { name: `My example item`, calling: () => example_function() },

@@ -1,7 +1,7 @@
 <script>
-    import TitleBar from "./components/Titlebar.svelte";
-    import DropDown from "./ui/Dropdown.svelte";
-    import Drawer from "./ui/Drawer.svelte";
+    import TitleBar from "../components/Titlebar.svelte";
+    import DropDown from "../ui/Dropdown.svelte";
+    import Drawer from "../ui/Drawer.svelte";
 
     let items = [
         {lable: "Darkmode", default: "", value: "darkmode"},

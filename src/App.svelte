@@ -2,13 +2,14 @@
 	import { onMount } from "svelte"
 
 	// Route imports
-	import Editor from './Editor.svelte'
-	import Launcher from './Launcher.svelte'
-	import Settings from './Settings.svelte'
-	import Debug from './Debug.svelte';
+	import Editor from './pages/Editor.svelte'
+	import Launcher from './pages/Launcher.svelte'
+	import Settings from './pages/Settings.svelte'
+	import Debug from './pages/Debug.svelte'
+	import Console from './pages/Console.svelte'
 
 	// Hash routes
-	let routes = { "settings" : Settings, "editor" : Editor, "launcher" : Launcher, "debug" : Debug }
+	let routes = { "settings" : Settings, "editor" : Editor, "launcher" : Launcher, "debug" : Debug, "console": Console }
 
 	let route;
 	onMount(() => {

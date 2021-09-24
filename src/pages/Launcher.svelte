@@ -1,6 +1,6 @@
 <script>
-    import TitleBar from './components/Titlebar.svelte'
-    import DropDown from './ui/Dropdown.svelte'
+    import TitleBar from '../components/Titlebar.svelte'
+    import DropDown from '../ui/Dropdown.svelte'
     import Settings from './Settings.svelte'
 
     import { WebviewWindow } from "@tauri-apps/api/window";
