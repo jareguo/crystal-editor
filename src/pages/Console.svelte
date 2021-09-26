@@ -1,5 +1,5 @@
 <script>
-    import TitleBar from "../components/Titlebar.svelte";
+    import TitleBar from "../components/Titlebar.svelte"
 
     let history_max = 1000;
     let history = [];

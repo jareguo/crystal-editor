@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from "svelte"
+	import { ui_theme } from "./data"
 
 	// Route imports
 	import Editor from './pages/Editor.svelte'
@@ -14,6 +15,12 @@
 	let route;
 	onMount(() => {
 		// TODO: Track what routes / windows are open and focus if duplicate.
+
+		// set theme
+		document.documentElement.setAttribute('data-theme', $ui_theme ? '' : 'light');
+		ui_theme.subscribe(() => {
+			document.documentElement.setAttribute('data-theme', $ui_theme ? '' : 'light');
+		});
 
 		// Get name of route from hash
 		route = window.location.hash.substr(1)
