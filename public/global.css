@@ -94,8 +94,52 @@ button:active, button:focus{
 	padding: 10px;
 }
 
-.ghost{
-	
+input{
+	font-family: 'IBM Plex Mono' !important;
+	padding: 0px 7px;
+	border: 1px solid var(--bg1);
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+input:hover{
+	border: 1px solid var(--fg1);
+	padding: 0px 7px;
+}
+
+input:focus{
+	padding: 0px 7px;
+	background-color: var(--interactive-hover);
+	border: 1px solid var(--fg) !important;
+}
+
+input[type="color"]{
+	-webkit-appearance: none;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+input[type="color"]:hover{
+	border: 1px solid var(--fg1);
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 1px;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+.listrow{
+	background-color: transparent;
+}
+
+.listrow:hover{
+	border: 1px solid var(--interactive-hover);
 }
 
 /* 	--------------------------------------------------------------------------
