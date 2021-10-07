@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+import { emit, listen } from '@tauri-apps/api/event'
 
 // TODO: Sync these changes across all windows
 

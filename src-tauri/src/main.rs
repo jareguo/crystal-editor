@@ -4,6 +4,23 @@
 )]
 
 use tauri::{CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
+use std::{
+  collections::HashMap,
+  sync::{
+    atomic::{AtomicUsize, Ordering},
+    Arc, Mutex,
+  },
+};
+
+#[derive(Default)]
+struct EditorSettings(Arc<Mutex<HashMap<String, String>>>);
+
+#[tauri::command]
+fn setting() {
+  // <editor> svelte component/window has just been created.
+  println!("Editor new instance triggerd");
+}
+
 
 #[tauri::command]
 fn editor_instance_init() {
